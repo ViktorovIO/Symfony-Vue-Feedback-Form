@@ -73,6 +73,8 @@ Encore
 
     // Vue.js
     .addEntry('main', './assets/main.js')
+
+    .enableVueLoader()
 ;
 
 module.exports = Encore.getWebpackConfig();
