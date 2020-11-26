@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+app_get_feedback_list:
+  path: /feedbacks/getFeedbackList
+  controller: App\Controller\FeedbackController::getFeedbackList
