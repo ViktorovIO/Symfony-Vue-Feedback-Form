@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-use App\Models\Feedback\Feedback;
-use App\Models\Feedback\FeedbackFacade;
-use App\Models\Feedback\FeedbackTranslator;
+use App\Feedback\FeedbackFacade;
+use App\Feedback\FeedbackTranslator;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class FeedbackController extends Controller
+class FeedbackController extends AbstractController
 {
     private FeedbackFacade $feedbackFacade;
 
@@ -34,17 +34,19 @@ class FeedbackController extends Controller
             }
         }
 
-        return response()->json($result);
+
+
+        return $this->json($result);
     }
 
     public function getFeedbackById(int $id): JsonResponse
     {
         $feedback = $this->feedbackFacade->getFeedbackById($id);
         if ( ! $feedback) {
-            return response()->json(['error']);
+            return $this->json(['error']);
         }
 
-        return response()->json(
+        return $this->json(
             $this->feedbackTranslator->translate($feedback)
         );
     }
