@@ -50,7 +50,7 @@ class FeedbackRepository
     public function saveFeedback(Feedback $feedback): void
     {
         $this->dbal->executeQuery(
-            "INSERT INTO " . self::FEEDBACK_TABLE . "
+            "INSERT INTO " . self::TABLE_NAME . "
             SET `id`=:id,
                 `name`=:name,
                 `phone`=:phone,
