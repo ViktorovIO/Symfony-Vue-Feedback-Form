@@ -39,4 +39,9 @@ class Feedback
     {
         return $this->message;
     }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 }

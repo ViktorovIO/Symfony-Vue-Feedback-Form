@@ -7,7 +7,7 @@ use Doctrine\DBAL\Connection;
 
 class FeedbackRepository
 {
-    private const FEEDBACK_TABLE = 'feedback';
+    private const TABLE_NAME = '`feedback_db`.`feedback`';
 
     private Connection $dbal;
 
@@ -20,7 +20,7 @@ class FeedbackRepository
     public function getFeedbackList(): ?array
     {
         $result = [];
-        $feedbackCollection = $this->dbal->fetchAllAssociative("SELECT * FROM " . self::FEEDBACK_TABLE);
+        $feedbackCollection = $this->dbal->fetchAllAssociative("SELECT * FROM " . self::TABLE_NAME);
 
         if ( ! $feedbackCollection) {
             return null;
@@ -64,6 +64,10 @@ class FeedbackRepository
                 'message' => $feedback->getMessage()
         ], []
         );
+
+        if ( ! $feedback->getId()) {
+            $feedback->setId($this->dbal->lastInsertId());
+        }
     }
 
     private function getFeedback(array $feedbackArray): Feedback

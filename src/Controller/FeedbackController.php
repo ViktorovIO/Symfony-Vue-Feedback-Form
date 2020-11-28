@@ -62,7 +62,7 @@ class FeedbackController extends AbstractController
     {
         $feedback = $this->feedbackFacade->getFeedbackById($id);
         if ( ! $feedback) {
-            return $this->json(['error']);
+            return $this->json(['Not found']);
         }
 
         return $this->json(
