@@ -4,7 +4,7 @@ namespace App\Entity;
 
 class Feedback
 {
-    private int $id;
+    private ?int $id = null;
 
     private string $name;
 
@@ -12,7 +12,7 @@ class Feedback
 
     private string $message;
 
-    public function __construct(int $id, string $name, int $phone, string $message)
+    public function __construct(?int $id, string $name, int $phone, string $message)
     {
         $this->id = $id;
         $this->name = $name;
@@ -20,7 +20,7 @@ class Feedback
         $this->message = $message;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
