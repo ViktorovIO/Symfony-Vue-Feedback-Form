@@ -20,23 +20,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3baa04d8-9845-4f26-8742-1a4c050a5bf9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Feedback/Feedback.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Feedback/FeedbackFacade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Feedback/FeedbackRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Feedback/FeedbackTranslator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/api/feedbacks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/FeedbackForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/store/feedbacks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SymfonyVueFeedbackForm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SymfonyVueFeedbackForm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FeedbackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FeedbackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -83,6 +97,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kpwSQEMnLWAfFXGvXgfwqfVTPf" />
@@ -92,9 +110,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="redshift&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,7 +126,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606410842264</updated>
-      <workItem from="1606410845930" duration="3383000" />
+      <workItem from="1606410845930" duration="3550000" />
+      <workItem from="1606457540646" duration="9000" />
+      <workItem from="1606581807512" duration="6717000" />
     </task>
     <servers />
   </component>
@@ -122,8 +145,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606591512569">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1606591512569" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1606582791627">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606582791627" />
+    <state x="627" y="334" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1606591525028">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="627" y="334" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1440.900@0.0.1440.900" timestamp="1606591525028" />
+    <state x="402" y="133" width="630" height="510" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1606591560686">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="402" y="133" width="630" height="510" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1606591560686" />
+    <state x="427" y="205" width="586" height="490" key="find.popup" timestamp="1606583274238">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="427" y="205" width="586" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1606583274238" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1606411269160">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

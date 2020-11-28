@@ -6,6 +6,7 @@ use App\Feedback\FeedbackFacade;
 use App\Feedback\FeedbackTranslator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class FeedbackController extends AbstractController
 {
@@ -22,7 +23,7 @@ class FeedbackController extends AbstractController
         $this->feedbackTranslator = $feedbackTranslator;
     }
 
-    /** @return array */
+    /** @return JsonResponse */
     public function getFeedbackList(): JsonResponse
     {
         $result = [];
@@ -34,11 +35,10 @@ class FeedbackController extends AbstractController
             }
         }
 
-
-
         return $this->json($result);
     }
 
+    /** @param int $id @return JsonResponse */
     public function getFeedbackById(int $id): JsonResponse
     {
         $feedback = $this->feedbackFacade->getFeedbackById($id);
@@ -49,5 +49,10 @@ class FeedbackController extends AbstractController
         return $this->json(
             $this->feedbackTranslator->translate($feedback)
         );
+    }
+
+    public function post(Request $request)
+    {
+
     }
 }

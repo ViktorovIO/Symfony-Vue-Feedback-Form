@@ -72,7 +72,6 @@ Encore
     //.addEntry('admin', './assets/admin.js')
 
     // Vue.js
-    .addEntry('main', './assets/app.js')
     .enableVueLoader()
 
     // Sass
