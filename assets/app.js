@@ -8,11 +8,13 @@ import './styles/app.sass';
 
 import Vue from 'vue';
 import router from "./router/index";
-import Index from './components/Index'
+import Index from './components/Index';
+import store from "./store";
 
 new Vue({
     el: '#app',
     components: { Index },
     template: "<Index/>",
-    router
+    router,
+    store
 }).$mount("#app");

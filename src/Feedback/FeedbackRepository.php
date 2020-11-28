@@ -2,17 +2,27 @@
 
 namespace App\Feedback;
 
-use Illuminate\Support\Facades\DB;
+use App\Entity\Feedback;
+use Doctrine\DBAL\Connection;
 
 class FeedbackRepository
 {
+    private const FEEDBACK_TABLE = 'feedback';
+
+    private Connection $dbal;
+
+    public function __construct(Connection $dbal)
+    {
+        $this->dbal = $dbal;
+    }
+
     /** @return null|Feedback[] */
     public function getFeedbackList(): ?array
     {
         $result = [];
-        $feedbackCollection = DB::table('feedback')->get();
+        $feedbackCollection = $this->dbal->fetchAllAssociative("SELECT * FROM " . self::FEEDBACK_TABLE);
 
-        if (empty($feedbackCollection)) {
+        if ( ! $feedbackCollection) {
             return null;
         }
 
@@ -35,6 +45,25 @@ class FeedbackRepository
         }
 
         return $result;
+    }
+
+    public function saveFeedback(Feedback $feedback): void
+    {
+        $this->dbal->executeQuery(
+            "INSERT INTO " . self::FEEDBACK_TABLE . "
+            SET `id`=:id,
+                `name`=:name,
+                `phone`=:phone,
+                `message`=:message
+            ON DUPLICATE KEY UPDATE
+                
+            ", [
+                'id' => $feedback->getId(),
+                'name' => $feedback->getName(),
+                'phone' => $feedback->getPhone(),
+                'message' => $feedback->getMessage()
+        ], []
+        );
     }
 
     private function getFeedback(array $feedbackArray): Feedback

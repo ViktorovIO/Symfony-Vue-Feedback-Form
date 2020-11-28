@@ -20,30 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3baa04d8-9845-4f26-8742-1a4c050a5bf9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/api/feedbacks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/components/FeedbackForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/components/Home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/components/Index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/store/feedbacks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/components/Feedback.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Feedback/FeedbackFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SymfonyVueFeedbackForm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SymfonyVueFeedbackForm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/api/feedbacks.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/api/feedbacks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/store/feedbacks.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/store/feedbacks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FeedbackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FeedbackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Feedback/Feedback.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Feedback.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Feedback/FeedbackFacade.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Feedback/FeedbackFacade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Feedback/FeedbackRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Feedback/FeedbackRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Feedback/FeedbackTranslator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Feedback/FeedbackTranslator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +99,30 @@
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kpwSQEMnLWAfFXGvXgfwqfVTPf" />
@@ -118,6 +140,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Entity" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -128,7 +155,7 @@
       <updated>1606410842264</updated>
       <workItem from="1606410845930" duration="3550000" />
       <workItem from="1606457540646" duration="9000" />
-      <workItem from="1606581807512" duration="6717000" />
+      <workItem from="1606581807512" duration="10500000" />
     </task>
     <servers />
   </component>

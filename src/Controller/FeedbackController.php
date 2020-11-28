@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Feedback\FeedbackFacade;
+use App\Feedback\FeedbackFactory;
 use App\Feedback\FeedbackTranslator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class FeedbackController extends AbstractController
 {
@@ -14,20 +16,28 @@ class FeedbackController extends AbstractController
 
     private FeedbackTranslator $feedbackTranslator;
 
+    private FeedbackFactory $feedbackFactory;
+
     public function __construct(
         FeedbackFacade $feedbackFacade,
-        FeedbackTranslator $feedbackTranslator
+        FeedbackTranslator $feedbackTranslator,
+        FeedbackFactory $feedbackFactory
     )
     {
         $this->feedbackFacade = $feedbackFacade;
         $this->feedbackTranslator = $feedbackTranslator;
+        $this->feedbackFactory = $feedbackFactory;
     }
 
     /** @return JsonResponse */
     public function getFeedbackList(): JsonResponse
     {
         $result = [];
-        $feedbackList = $this->feedbackFacade->getFeedbackList();
+        try {
+            $feedbackList = $this->feedbackFacade->getFeedbackList();
+        } catch (\Exception $e) {
+            return $this->json($e);
+        }
 
         if ($feedbackList) {
             foreach ($feedbackList as $feedback) {
@@ -38,7 +48,10 @@ class FeedbackController extends AbstractController
         return $this->json($result);
     }
 
-    /** @param int $id @return JsonResponse */
+    /**
+     * @param int $id
+     * @return JsonResponse
+     */
     public function getFeedbackById(int $id): JsonResponse
     {
         $feedback = $this->feedbackFacade->getFeedbackById($id);
@@ -51,8 +64,25 @@ class FeedbackController extends AbstractController
         );
     }
 
-    public function post(Request $request)
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function post(Request $request): JsonResponse
     {
+        $feedback = $request->request->all();
+        if (empty($feedback['message'])) {
+            throw new BadRequestHttpException('Message cannot be empty');
+        }
 
+        try {
+            $this->feedbackFacade->saveFeedback(
+                $this->feedbackFactory->createFeedbackFromArray($feedback)
+            );
+        } catch (\Exception $exception) {
+            return $this->json($exception);
+        }
+
+        return $this->json(['status' => 'ok', 'feedback' => $feedback]);
     }
 }

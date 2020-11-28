@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Feedback;
+namespace App\Entity;
 
 class Feedback
 {

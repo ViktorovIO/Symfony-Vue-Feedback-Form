@@ -1,8 +1,8 @@
 import FeedbackAPI from "../api/feedbacks";
 
-const CREATING_POST = "CREATING_POST",
-    CREATING_POST_SUCCESS = "CREATING_POST_SUCCESS",
-    CREATING_POST_ERROR = "CREATING_POST_ERROR",
+const CREATING_FEEDBACK = "CREATING_feedback",
+    CREATING_FEEDBACK_SUCCESS = "CREATING_feedback_SUCCESS",
+    CREATING_FEEDBACK_ERROR = "CREATING_feedback_ERROR",
     FETCHING_FEEDBACKS = "FETCHING_FEEDBACKS",
     FETCHING_FEEDBACKS_SUCCESS = "FETCHING_FEEDBACKS_SUCCESS",
     FETCHING_FEEDBACKS_ERROR = "FETCHING_FEEDBACKS_ERROR";
@@ -32,16 +32,16 @@ export default {
         }
     },
     mutations: {
-        [CREATING_POST](state) {
+        [CREATING_FEEDBACK](state) {
             state.isLoading = true;
             state.error = null;
         },
-        [CREATING_POST_SUCCESS](state, post) {
+        [CREATING_FEEDBACK_SUCCESS](state, feedback) {
             state.isLoading = false;
             state.error = null;
-            state.feedbacks.unshift(post);
+            state.feedbacks.unshift(feedback);
         },
-        [CREATING_POST_ERROR](state, error) {
+        [CREATING_FEEDBACK_ERROR](state, error) {
             state.isLoading = false;
             state.error = error;
             state.feedbacks = [];
@@ -63,21 +63,10 @@ export default {
         }
     },
     actions: {
-        async create({ commit }, message) {
-            commit(CREATING_POST);
-            try {
-                let response = await FeedbackAPI.create(message);
-                commit(CREATING_POST_SUCCESS, response.data);
-                return response.data;
-            } catch (error) {
-                commit(CREATING_POST_ERROR, error);
-                return null;
-            }
-        },
         async getFeedbackList({ commit }) {
             commit(FETCHING_FEEDBACKS);
             try {
-                let response = await FeedbackAPI.findAll();
+                let response = await FeedbackAPI.getFeedbackList();
                 commit(FETCHING_FEEDBACKS_SUCCESS, response.data);
                 return response.data;
             } catch (error) {

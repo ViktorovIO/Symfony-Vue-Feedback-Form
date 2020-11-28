@@ -2,6 +2,8 @@
 
 namespace App\Feedback;
 
+use App\Entity\Feedback;
+
 class FeedbackFacade
 {
     private FeedbackRepository $feedbackRepository;
@@ -20,5 +22,10 @@ class FeedbackFacade
     public function getFeedbackById(int $id): ?Feedback
     {
         return $this->feedbackRepository->getFeedbackById($id);
+    }
+
+    public function saveFeedback(Feedback $feedback): void
+    {
+        $this->feedbackRepository->saveFeedback($feedback);
     }
 }

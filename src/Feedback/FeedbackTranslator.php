@@ -2,6 +2,8 @@
 
 namespace App\Feedback;
 
+use App\Entity\Feedback;
+
 class FeedbackTranslator
 {
     /**
