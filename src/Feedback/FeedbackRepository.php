@@ -27,7 +27,7 @@ class FeedbackRepository
         }
 
         foreach ($feedbackCollection as $feedback) {
-            $result[] = $this->getFeedback($feedback);
+            $result[] = $this->makeFeedback($feedback);
         }
         return $result;
     }
@@ -41,7 +41,7 @@ class FeedbackRepository
         }
 
         foreach ($feedback as $item) {
-            $result = $this->getFeedback($item);
+            $result = $this->makeFeedback($item);
         }
 
         return $result;
@@ -70,7 +70,7 @@ class FeedbackRepository
         }
     }
 
-    private function getFeedback(array $feedbackArray): Feedback
+    private function makeFeedback(array $feedbackArray): Feedback
     {
         return new Feedback(
             $feedbackArray['id'],
