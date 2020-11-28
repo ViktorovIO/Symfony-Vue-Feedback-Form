@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Feedback\FeedbackFacade;
 use App\Feedback\FeedbackFactory;
 use App\Feedback\FeedbackTranslator;
+use App\Logger\LoggerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,15 +19,19 @@ class FeedbackController extends AbstractController
 
     private FeedbackFactory $feedbackFactory;
 
+    private LoggerService $loggerService;
+
     public function __construct(
         FeedbackFacade $feedbackFacade,
         FeedbackTranslator $feedbackTranslator,
-        FeedbackFactory $feedbackFactory
+        FeedbackFactory $feedbackFactory,
+        LoggerService $loggerService
     )
     {
         $this->feedbackFacade = $feedbackFacade;
         $this->feedbackTranslator = $feedbackTranslator;
         $this->feedbackFactory = $feedbackFactory;
+        $this->loggerService = $loggerService;
     }
 
     /** @return JsonResponse */
@@ -71,18 +76,29 @@ class FeedbackController extends AbstractController
     public function post(Request $request): JsonResponse
     {
         $feedback = $request->request->all();
-        if (empty($feedback['message'])) {
-            throw new BadRequestHttpException('Message cannot be empty');
-        }
-
         try {
+            $this->validate($feedback);
             $this->feedbackFacade->saveFeedback(
                 $this->feedbackFactory->createFeedbackFromArray($feedback)
             );
+            $this->loggerService->write($feedback);
         } catch (\Exception $exception) {
             return $this->json($exception);
         }
 
         return $this->json(['status' => 'ok', 'feedback' => $feedback]);
+    }
+
+    private function validate(array $feedback): void
+    {
+        if (empty($feedback['name'])) {
+            throw new BadRequestHttpException('Message cannot be empty');
+        }
+        if (empty($feedback['phone'])) {
+            throw new BadRequestHttpException('Message cannot be empty');
+        }
+        if (empty($feedback['message'])) {
+            throw new BadRequestHttpException('Message cannot be empty');
+        }
     }
 }
