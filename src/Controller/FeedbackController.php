@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Feedback\FeedbackFacade;
 use App\Feedback\FeedbackFactory;
 use App\Feedback\FeedbackTranslator;
+use App\Feedback\ValidationException;
 use App\Logger\LoggerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -82,7 +83,7 @@ class FeedbackController extends AbstractController
                 $this->feedbackFactory->createFeedbackFromArray($feedback)
             );
             $this->loggerService->write($feedback);
-        } catch (\Exception $exception) {
+        } catch (ValidationException $exception) {
             return $this->json($exception);
         }
 
@@ -92,13 +93,13 @@ class FeedbackController extends AbstractController
     private function validate(array $feedback): void
     {
         if (empty($feedback['name'])) {
-            throw new BadRequestHttpException('Name field cannot be empty');
+            throw new ValidationException('Name field cannot be empty');
         }
         if (empty($feedback['phone'])) {
-            throw new BadRequestHttpException('Phone field cannot be empty');
+            throw new ValidationException('Phone field cannot be empty');
         }
         if (empty($feedback['message'])) {
-            throw new BadRequestHttpException('Message field cannot be empty');
+            throw new ValidationException('Message field cannot be empty');
         }
     }
 }
