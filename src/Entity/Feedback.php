@@ -4,12 +4,16 @@ namespace App\Entity;
 
 class Feedback
 {
+    /** @var int|null */
     private ?int $id = null;
 
+    /** @var string */
     private string $name;
 
+    /** @var int */
     private int $phone;
 
+    /** @var string */
     private string $message;
 
     public function __construct(?int $id, string $name, int $phone, string $message)
