@@ -92,13 +92,13 @@ class FeedbackController extends AbstractController
     private function validate(array $feedback): void
     {
         if (empty($feedback['name'])) {
-            throw new BadRequestHttpException('Message cannot be empty');
+            throw new BadRequestHttpException('Name field cannot be empty');
         }
         if (empty($feedback['phone'])) {
-            throw new BadRequestHttpException('Message cannot be empty');
+            throw new BadRequestHttpException('Phone field cannot be empty');
         }
         if (empty($feedback['message'])) {
-            throw new BadRequestHttpException('Message cannot be empty');
+            throw new BadRequestHttpException('Message field cannot be empty');
         }
     }
 }
